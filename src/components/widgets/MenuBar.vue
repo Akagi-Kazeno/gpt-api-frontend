@@ -1,4 +1,13 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref } from "vue";
+import instance from "../../interceptor/httpInterceptor.ts";
+
+const activeIndex = ref("1");
+const handleSelect = (key: string, keyPath: string[]) => {
+  console.log(key, keyPath);
+};
+const quit = instance.post("/user/quit");
+</script>
 
 <template>
   <el-menu
