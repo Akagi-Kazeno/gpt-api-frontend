@@ -9,7 +9,7 @@ import HeadTabs from "../widgets/HeadTabs.vue";
       <menu-bar />
     </el-header>
     <el-main>
-      <head-tabs/>
+      <head-tabs />
     </el-main>
   </el-container>
 </template>

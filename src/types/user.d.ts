@@ -7,7 +7,7 @@ declare namespace User {
     create_time?: Date;
     update_time?: Date | null;
     last_login_time?: Date | null;
-    last_login_ip?: string;
+    last_login_ip?: string | null;
   }
 
   interface UserLoginRequest {

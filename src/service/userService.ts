@@ -10,7 +10,7 @@ const UserVO = reactive<User.UserVO>({
   create_time: new Date(),
   update_time: null,
   last_login_time: null,
-  last_login_ip: "",
+  last_login_ip: null,
 });
 
 export async function UserLogin(params: User.UserLoginRequest) {
@@ -33,7 +33,7 @@ export async function UserRegister(params: User.UserRegisterRequest) {
 
 export async function getUserInfo() {
   await instance.get("/user/info").then((res) => {
-    if (res) {
+    if (res.data.code === 200) {
       const user = res.data.data;
       UserVO.user_id = user.user_id;
       UserVO.user_name = user.user_name;
@@ -50,7 +50,7 @@ export async function getUserInfo() {
 
 export async function UserLogout() {
   await clearAllCookies();
-  return ElMessage({ showClose: false, message: "登出成功", type: "success" });
+  return ElMessage({ showClose: false, message: "已退出登录", type: "info" });
 }
 
 export async function clearAllCookies() {
