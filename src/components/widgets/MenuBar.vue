@@ -8,9 +8,9 @@ const handleSelect = (key: string, keyPath: string[]) => {
 };
 const quit = UserLogout;
 const user = await getUserInfo().then((res) => {
-  const userAvatar = res.avatar;
+  const user_avatar = res.avatar;
   return {
-    userAvatar,
+    user_avatar,
   };
 });
 </script>
@@ -25,15 +25,17 @@ const user = await getUserInfo().then((res) => {
       @select="handleSelect"
     >
       <el-menu-item index="0">LOGO</el-menu-item>
-      <el-sub-menu index="1">
-        <template #title>
-          <el-avatar src="{{user.userAvatar}}"></el-avatar>
-        </template>
-        <el-menu-item class="center" index="/user/info">个人中心</el-menu-item>
-        <el-menu-item class="center" @click="quit">
-          <el-text type="danger">退出登录</el-text>
-        </el-menu-item>
-      </el-sub-menu>
+      <div class="flex-grow">
+        <el-sub-menu index="1">
+          <template #title>
+            <el-avatar src="{{user.user_avatar}}"></el-avatar>
+          </template>
+          <el-menu-item class="center" index="/user">个人中心</el-menu-item>
+          <el-menu-item class="center" @click="quit">
+            <el-text type="danger">退出登录</el-text>
+          </el-menu-item>
+        </el-sub-menu>
+      </div>
     </el-menu>
   </div>
 </template>

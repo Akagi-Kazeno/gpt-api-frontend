@@ -5,4 +5,8 @@ declare namespace Chat {
     session?: string;
     create_time?: Date;
   }
+
+  interface webChatRequest {
+    prompt?: string;
+  }
 }
