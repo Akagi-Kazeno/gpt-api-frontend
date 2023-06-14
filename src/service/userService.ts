@@ -5,7 +5,7 @@ import { ElMessage } from "element-plus";
 const UserVO = reactive<User.UserVO>({
   user_id: "",
   user_name: "",
-  avatar: "",
+  avatar: null,
   role: "",
   create_time: new Date(),
   update_time: null,
@@ -51,6 +51,14 @@ export async function getUserInfo() {
 export async function UserLogout() {
   await clearAllCookies();
   return ElMessage({ showClose: false, message: "已退出登录", type: "info" });
+}
+
+export async function UserUpdateAvatar(params: User.UserUpdateAvatarRequest) {
+  return await instance.post("/user/update/avatar", params).then((res) => {
+    if (res.data.code === 200) {
+      ElMessage({ showClose: false, message: "修改成功", type: "success" });
+    }
+  });
 }
 
 export async function clearAllCookies() {
