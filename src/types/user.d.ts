@@ -2,7 +2,7 @@ declare namespace User {
   interface UserVO {
     user_id?: string;
     user_name?: string;
-    avatar?: string;
+    avatar?: string | null;
     role?: string;
     create_time?: Date;
     update_time?: Date | null;
@@ -19,5 +19,9 @@ declare namespace User {
     user_name: string;
     password: string;
     check_password: string;
+  }
+
+  interface UserUpdateAvatarRequest {
+    avatar: string;
   }
 }
