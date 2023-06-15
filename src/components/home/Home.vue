@@ -3,6 +3,7 @@ import MenuBar from "../widgets/MenuBar.vue";
 import HeadTabs from "../widgets/HeadTabs.vue";
 import ButtonTabs from "../widgets/ButtonTabs.vue";
 import BottomButtonTabs from "../widgets/BottomButtonTabs.vue";
+import ResultCard from "../widgets/ResultCard.vue";
 </script>
 
 <template>
@@ -19,6 +20,11 @@ import BottomButtonTabs from "../widgets/BottomButtonTabs.vue";
       <div class="head-button">
         <button-tabs />
       </div>
+      <br />
+      <div class="result">
+        <result-card />
+      </div>
+      <br />
       <div class="bottom-button">
         <bottom-button-tabs />
       </div>
